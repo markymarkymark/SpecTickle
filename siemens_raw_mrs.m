@@ -44,7 +44,7 @@ end
 function [fid,rawfid,c,t,hz,ppm,par,fshift,whitemat,chanphase] = dfs_rawdata_fid(rawfile,coeffs,fshift,whitemat,chanphase,opt)
 fid = []; rawfid = []; c = []; t = []; hz = []; ppm = [];  
 [twix,rawfp,twixnoise] = open_rawdata(rawfile,opt);                 % Open raw data file
-par = dfs_svs_acqparams(twix,opt);                                  % Get header info
+par = svs_acqparams(twix,opt);                                  % Get header info
 if (~opt.remove_presamp && opt.remove_adcdelay && (par(1).adcdelay < 0))
     fprintf(2,'ERROR: Dont know how to remove ADCdelay points but keep samples-before-echo.\n');
     return

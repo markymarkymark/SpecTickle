@@ -59,7 +59,7 @@ if (~opt_dfs.use_rawdata)
     % --- Read Dicom water reference files ---
     if (~isempty(waterfiles))
         hdr_water = dicom_header(waterfiles);
-        par_water = dfs_svs_acqparams(hdr_water,opt_water);
+        par_water = svs_acqparams(hdr_water,opt_water);
         for i=1:nwat
             fid = siemens_dicom_mrs(hdr_water{i},opt_water);
             if (i==1), fids_water = repmat(fid,1,nwat); end
@@ -68,7 +68,7 @@ if (~opt_dfs.use_rawdata)
     end
     % --- Read Dicom "DFS" files ---
     hdr_dfs = dicom_header(dfsfiles);
-    par_dfs = dfs_svs_acqparams(hdr_dfs,opt_dfs);
+    par_dfs = svs_acqparams(hdr_dfs,opt_dfs);
     for i=1:ndfs
         if (i==1)
             [fid,h,t,hz,ppm] = siemens_dicom_mrs(hdr_dfs{i},opt_dfs);
@@ -107,7 +107,7 @@ else
     
     % --- Fill in some params which might not exist in raw TWIX files ---
     if (~isempty(exampdicom))
-        par_dcm = dfs_svs_acqparams(exampdicom,opt_dfs);
+        par_dcm = svs_acqparams(exampdicom,opt_dfs);
         if (par_dfs(1).scanID ~= par_dcm.scanID)
             fprintf(2,'ERROR: Raw data scanID (%1d) != Dicom scanID (%1d)\n',par_dfs(1).scanID,par_dcm.scanID); 
             % return;
