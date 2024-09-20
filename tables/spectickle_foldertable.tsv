@@ -1,0 +1,21 @@
+Folder Match	Exp Type	Sort By
+svssel_inv_sel	Sel_InvRecovery	TI
+svssel_inv_nonsel	nonSel_InvRecovery	TI
+svssel_*_nonselinv*	nonSel_InvRecovery	TI
+svssel_selsat_*sr*	Sel_SatRecovery	TS
+svssel_nad_*sr*	SatRecovery	TS
+svssel_nad*_sr*	SatRecovery	TS
+svssel_*sat*_ti*	SatRecovery	TS
+svssel_*tsat*	SatRecovery	TS
+svssel_nad_*ppm*	SVS	Series
+s3sel*_te*	MultiTE	TE
+svssel_nad_tr*	MultiNEX	NEX
+svssel_nad_*avg*	SVS	Series
+csi_se	CSI	TE
+*svssel_nad*ovs*	SVS	Series
+svssel_*_trp*	SVS	Series
+svssel_nad	SVS	Series
+svssel_*_nad*	SVS	Series
+*eja_svs_slaser*	SVS	Measurement
+svssel	SVS	Series
+*svs*	SVS	none

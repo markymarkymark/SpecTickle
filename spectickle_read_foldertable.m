@@ -6,8 +6,11 @@ folder_table_default = 'spectickle_foldertable.tsv';
 
 % --- if no file provided, get default peak file ---
 if (nargin < 1), folderfile = ''; end
-if (isempty(folderfile)), folderfile = which(folder_table_default); end
-if (isempty(folderfile)), folderfile = folder_table_default; return; end % error
+if (isempty(folderfile))
+    thisfile   = mfilename('fullpath');
+    folderfile = fullfile(fileparts(thisfile), 'tables', folder_table_default);
+end
+if (~isfile(folderfile)), return; end % error
 fprintf(1,'Loading folder matching definitions from %s\n',folderfile);
 
 % --- Get structure of table file ---
